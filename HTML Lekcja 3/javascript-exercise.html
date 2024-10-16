@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>JS Exercise</title>
+    <meta charset="utf-8">
+    <script src="kolorujtlo.js" type="text/javascript" defer></script>
+    <style>
+      footer {
+        padding: 5px;
+        position: fixed;
+        background-color: #aab;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Main page</a></li>
+            <li><a href="what-is-computer-vision.html">1. What is Computer Vision</a></li>
+            <li><a href="basics-of-computer-vision-convolutional-neural-networks.html">2. Basics of Computer Vision - Convolutional Neural Networks (CNNs)</a></li>
+            <li><a href="history-of-computer-vision-architectures-reviwing-the-architectures.html">3. History of Computer Vision architectures - reviewing the architectures</a></li>
+            <li><a href="generative-adversarial-networks-gans.html">4. Generative Adversarial Networks (GANs)</a></li>
+            <li><a href="implementation.html">5. Implementation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="javascript-exercise.html">JS Exercise</a></li>
+            <li><a href="timedatejs.html">Timedate</a></li>
+        </ul>
+    </nav>
+
+    <form method="POST" name="background">
+        <input type="button" value="żółty" onclick="changeBackground('#FFF000')">
+        <input type="button" value="czarny" onclick="changeBackground('#000000')">
+        <input type="button" value="biały" onclick="changeBackground('#FFFFFF')">
+        <input type="button" value="zielony" onclick="changeBackground('#00FF00')">
+        <input type="button" value="niebieski" onclick="changeBackground('#0000FF')">
+        <input type="button" value="pomarańczowy" onclick="changeBackground('#FF8000')">
+        <input type="button" value="szary" onclick="changeBackground('#C0C0C0')">
+        <input type="button" value="czerwony" onclick="changeBackground('#FF0000')">
+        <input type="button" value="Losowy kolor" onclick="changeRandomColor()">
+    </form>
+
+    <footer>
+      <p>This page is intended for HTML exercises. The knowledge was developed by Dawid Koterwas and Remigiusz Sęk, Computer Science students and members of the Student Artificial Intelligence Club "Czarna Magia" at UWM Olsztyn.</p>
+      <p>Remigiusz Sęk, 02.10.2024, 14:00</p>
+    </footer>
+</body>
+</html>
