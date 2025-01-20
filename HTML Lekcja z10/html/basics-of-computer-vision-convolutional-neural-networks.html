@@ -1,0 +1,60 @@
+<nav>
+	<ul>
+		<li><a href="index.php">Main page</a></li>
+		<li><a href="index.php?idp=what-is-computer-vision">1. What is Computer Vision</a></li>
+		<li><a href="index.php?idp=basics-of-computer-vision-convolutional-neural-networks">2. Basics of Computer Vision - Convolutional Neural Networks (CNNs)</a></li>
+		<li><a href="index.php?idp=history-of-computer-vision-architectures-reviwing-the-architectures">3. History of Computer Vision architectures - reviewing the architectures</a></li>
+		<li><a href="index.php?idp=generative-adversarial-networks-gans">4. Generative Adversarial Networks (GANs)</a></li>
+		<li><a href="index.php?idp=implementation">5. Implementation</a></li>
+		<li><a href="index.php?idp=contact">Contact</a></li>
+		<li><a href="index.php?idp=javascript-exercise">JS Exercise</a></li>
+		<li><a href="index.php?idp=timedatejs">Timedate</a></li>
+		<li><a href="index.php?idp=filmy">Filmy</a></li>
+	</ul>
+</nav>
+<h1>2. Basics of Computer Vision - Convolutional Neural Networks (CNNs)</h1>
+
+<p>Convolutional neural networks (CNNs) are a fundamental type of neural network used in CV designed for image and video processing tasks. The core components of a CNN are convolutional layers, pooling layers and fully connected (FC) layers.</p>
+
+<p>
+	Great lecture videos about CNNs and Computer Vision in general: </br>
+
+	<a href="https://www.youtube.com/watch?v=LxfUGhug-iQ">CS231n Winter 2016: Lecture 7: Convolutional Neural Networks</a> </br>
+	<a href="https://www.youtube.com/watch?v=GxZrEKZfW2o">CS231n Winter 2016: Lecture 8: Localization and Detection</a> </br>
+</p>
+
+<h2>Convolution</h2>
+<p>A convolution operation applies a small matrix called a kernel (or filter) to an input image (or feature map), producing an output image. The kernel slides over the image, and at each position, it multiplies the kernel values with the overlapping image values, creating an output that shows how the kernel "reacts" to different patterns in the image, such as edges or shapes. The size of the kernel, how far it moves at each step (stride), and whether it adds extra pixels around the edges (padding) control how the convolution is applied.</p>
+
+<img src="../img/convolution-animation-3x3-kernel.gif">
+
+<h3>Receptive Field</h3>
+<p>
+	The receptive field of a convolutional layer is the area of the input that affects a particular output feature. It is determined by the kernel size, stride, and padding. A larger receptive field allows the network to capture more contextual information. The receptive field of a convolutional layer can be calculated as:
+</p>
+
+<h3>Residual Connection</h3>
+<p>
+	A residual connection is a connection that skips one or more layers, allowing the network to learn residual functions (each layer adds something to the input rather than transforming it entirely). This is particularly useful in deep networks, where the gradient may vanish (the learning signal is too small to change the parameters of the model) or explode (the signal is so strong that values go beyond the numerical range and become NaN or inf). This "highway for gradients" enabled building deep networks made of many (even hundreds of) layers. The residual connection is typically implemented as:
+</p>
+<h3>Types of Convolutions</h3>
+<p>
+	- Dilated Convolution: Increases the receptive field by inserting zeros between kernel elements. </br>
+	- Transposed Convolution (Upsampling): Reverses the downsampling operation, often used for spatial upsampling. </br>
+	- Grouped Convolution: Divides the input channels into groups and applies convolution separately to each group. </br>
+	- Depthwise Convolution: A special case of grouped convolution where groups == in_channels, each filter has its own channel. </br>
+	- Pointwise Convolution (1x1 Conv): Applies convolution to the channel dimension, reducing the number of channels. </br>
+	<img src="../img/depthwise_and_pointwise_conv.png">
+</p>
+
+<img src="../img/depthwise_and_pointwise_conv.png">
+
+<h2>Pooling and Upsampling</h2>
+<p>
+	The purpose of a pooling layer is to reduce the spatial dimension of the feature map, thus reducing the number of parameters and computational requirements. This is achieved by applying a downsampling operation, such as max pooling or mean pooling, to the feature map.
+</p>
+
+<footer>
+	<p>This page is intended for HTML exercises. The knowledge was developed by Dawid Koterwas and Remigiusz Sęk, Computer Science students and members of the Student Artificial Intelligence Club "Czarna Magia" at UWM Olsztyn.</p>
+	<p>Remigiusz Sęk, 02.10.2024, 14:00</p>
+</footer>
