@@ -1,0 +1,103 @@
+<nav>
+	<ul>
+		<li><a href="index.php">Main page</a></li>
+		<li><a href="index.php?idp=what-is-computer-vision">1. What is Computer Vision</a></li>
+		<li><a href="index.php?idp=basics-of-computer-vision-convolutional-neural-networks">2. Basics of Computer Vision - Convolutional Neural Networks (CNNs)</a></li>
+		<li><a href="index.php?idp=history-of-computer-vision-architectures-reviwing-the-architectures">3. History of Computer Vision architectures - reviewing the architectures</a></li>
+		<li><a href="index.php?idp=generative-adversarial-networks-gans">4. Generative Adversarial Networks (GANs)</a></li>
+		<li><a href="index.php?idp=implementation">5. Implementation</a></li>
+		<li><a href="index.php?idp=contact">Contact</a></li>
+		<li><a href="index.php?idp=javascript-exercise">JS Exercise</a></li>
+		<li><a href="index.php?idp=timedatejs">Timedate</a></li>
+		<li><a href="index.php?idp=filmy">Filmy</a></li>
+	</ul>
+</nav>
+<h1>Contact</h1>
+<div class="container">
+	<h1>Contact form</h1>
+	<form id="contactForm">
+		<div class="form-group">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required>
+		</div>
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required>
+		</div>
+		<div class="form-group">
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" rows="5" required></textarea>
+		</div>
+		<button type="submit">Send</button>
+	</form>
+</div>
+
+<script>
+	document.getElementById('contactForm').addEventListener('submit', function(event) {
+		event.preventDefault();
+
+		var name = encodeURIComponent(document.getElementById('name').value);
+		var email = encodeURIComponent(document.getElementById('email').value);
+		var message = encodeURIComponent(document.getElementById('message').value);
+
+		var mailtoLink = 'mailto:remigiusz.sek@gmail.com'
+			+ '?subject=Formularz%20kontaktowy%20od%20' + name
+			+ '&body=Imię:%20' + name + '%0A'
+			+ 'Email:%20' + email + '%0A%0A'
+			+ 'Wiadomość:%0A' + message;
+
+		window.location.href = mailtoLink;
+	});
+</script>
+
+<p></p>
+
+<footer>
+	<p>This page is intended for HTML exercises. The knowledge was developed by Dawid Koterwas and Remigiusz Sęk, Computer Science students and members of the Student Artificial Intelligence Club "Czarna Magia" at UWM Olsztyn.</p>
+	<p>Remigiusz Sęk, 02.10.2024, 14:00</p>
+</footer>
+<style>
+	body {
+		font-family: Arial, sans-serif;
+	}
+	.container {
+		max-width: 500px;
+		margin: auto;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+	.form-group {
+		margin-bottom: 15px;
+	}
+	label {
+		display: block;
+		margin-bottom: 5px;
+	}
+	input, textarea {
+		width: 100%;
+		padding: 8px;
+		box-sizing: border-box;
+	}
+	button {
+		padding: 10px 20px;
+		background-color: #28a745;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	button:hover {
+		background-color: #218838;
+	}
+
+	footer {
+		padding: 5px;
+		position: fixed;
+		background-color: #aab;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+	}
+</style>
