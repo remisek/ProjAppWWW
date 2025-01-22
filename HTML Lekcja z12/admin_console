@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Computer Vision Notes</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".flip1").click(function(){
+                    $(".panel1").slideDown("slow");
+                });
+                $(".flip2").click(function(){
+                    $(".panel2").slideDown("slow");
+                });
+                $(".flip3").click(function(){
+                    $(".panel3").slideDown("slow");
+                });
+            });
+        </script>
+    </head>
+	<body class="cms-wrapper">
+		<div class="cms-wrapper">
+			<!-- Panel boczny -->
+			<aside class="cms-sidebar">
+				<div class="cms-brand">CMS Panel</div>
+				<nav>
+					<ul class="cms-nav">
+						<li class="cms-nav-item">
+							<a href="#" class="cms-nav-link active">
+								<i class="fas fa-tachometer-alt"></i>
+								Dashboard
+							</a>
+						</li>
+						<li class="cms-nav-item">
+							<a href="#" class="cms-nav-link">
+								<i class="fas fa-box"></i>
+								Produkty
+							</a>
+						</li>
+						<li class="cms-nav-item">
+							<a href="#" class="cms-nav-link">
+								<i class="fas fa-tags"></i>
+								Kategorie
+							</a>
+						</li>
+						<li class="cms-nav-item">
+							<a href="#" class="cms-nav-link">
+								<i class="fas fa-shopping-cart"></i>
+								Zamówienia
+							</a>
+						</li>
+						<li class="cms-nav-item">
+							<a href="#" class="cms-nav-link">
+								<i class="fas fa-users"></i>
+								Użytkownicy
+							</a>
+						</li>
+						<li class="cms-nav-item">
+							<a href="#" class="cms-nav-link">
+								<i class="fas fa-chart-bar"></i>
+								Statystyki
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Główna zawartość -->
+			<main class="cms-main">
+				<!-- Nagłówek -->
+				<header class="cms-header">
+					<h1 class="cms-title">Dashboard</h1>
+					<button class="btn btn-primary">
+						<i class="fas fa-plus"></i>
+						Dodaj nowy produkt
+					</button>
+				</header>
+
+				<!-- Statystyki -->
+				<div class="cms-stats">
+					<div class="stat-card">
+						<div class="stat-value">1,234</div>
+						<div class="stat-label">Łącznych produktów</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-value">$12,345</div>
+						<div class="stat-label">Dzisiejszy przychód</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-value">56</div>
+						<div class="stat-label">Nowe zamówienia</div>
+					</div>
+				</div>
+
+				<!-- Ostatnie zamówienia -->
+				<h2>Ostatnie zamówienia</h2>
+				<table class="cms-table">
+					<thead>
+						<tr>
+							<th>Numer zamówienia</th>
+							<th>Klient</th>
+							<th>Data</th>
+							<th>Status</th>
+							<th>Kwota</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>#1234</td>
+							<td>Jan Kowalski</td>
+							<td>2024-02-15</td>
+							<td><span class="status-badge status-active">Zrealizowane</span></td>
+							<td>$199.99</td>
+						</tr>
+						<!-- Więcej wierszy... -->
+					</tbody>
+				</table>
+
+				<!-- Formularz dodawania produktu -->
+				<div class="cms-form">
+					<h3>Dodaj nowy produkt</h3>
+					<form>
+						<div class="form-group">
+							<label class="form-label">Nazwa produktu</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label class="form-label">Opis</label>
+							<textarea class="form-control" rows="4"></textarea>
+						</div>
+						<div class="form-group">
+							<label class="form-label">Cena</label>
+							<input type="number" class="form-control">
+						</div>
+						<button type="submit" class="btn btn-primary">Zapisz produkt</button>
+					</form>
+				</div>
+			</main>
+		</div>
+
+		<script>
+		// Proste funkcje zarządzania CMS
+		document.addEventListener('DOMContentLoaded', function() {
+			// Przykładowa obsługa akcji
+			const navLinks = document.querySelectorAll('.cms-nav-link');
+			navLinks.forEach(link => {
+				link.addEventListener('click', function(e) {
+					e.preventDefault();
+					navLinks.forEach(l => l.classList.remove('active'));
+					this.classList.add('active');
+				});
+			});
+
+			// Toggle formularza dodawania produktu
+			const addProductBtn = document.querySelector('.btn-primary');
+			const productForm = document.querySelector('.cms-form');
+			addProductBtn.addEventListener('click', function(e) {
+				e.preventDefault();
+				productForm.scrollIntoView({ behavior: 'smooth' });
+			});
+		});
+		</script>
+	</body>
+</html>
