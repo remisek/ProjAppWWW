@@ -1,0 +1,232 @@
+/* Reset i podstawowe style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --success-color: #4CAF50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+}
+
+body {
+    background-color: #f4f6f9;
+}
+
+/* Główny kontener */
+.cms-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Panel boczny */
+.cms-sidebar {
+    width: 250px;
+    background: var(--dark-color);
+    color: white;
+    padding: 1.5rem;
+    position: fixed;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.cms-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--light-color);
+    text-align: center;
+}
+
+.cms-nav {
+    list-style: none;
+}
+
+.cms-nav-item {
+    margin: 0.5rem 0;
+}
+
+.cms-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.cms-nav-link:hover,
+.cms-nav-link.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.cms-nav-link i {
+    width: 25px;
+    margin-right: 0.75rem;
+}
+
+/* Główna zawartość */
+.cms-main {
+    flex: 1;
+    margin-left: 250px;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+/* Nagłówek */
+.cms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.cms-title {
+    font-size: 2rem;
+    color: var(--dark-color);
+}
+
+/* Statystyki */
+.cms-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Tabela */
+.cms-table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.cms-table th,
+.cms-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.cms-table th {
+    background: var(--light-color);
+    font-weight: 600;
+}
+
+/* Statusy */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-active {
+    background: #e8f5e9;
+    color: var(--success-color);
+}
+
+/* Formularz */
+.cms-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+/* Przyciski */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-color);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .cms-sidebar {
+        margin-left: -250px;
+    }
+    
+    .cms-main {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    
+    .cms-wrapper.active .cms-sidebar {
+        margin-left: 0;
+    }
+}

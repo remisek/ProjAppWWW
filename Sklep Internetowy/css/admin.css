@@ -1,0 +1,315 @@
+/* css/admin.css */
+:root {
+    --primary: #4361ee;
+    --secondary: #3f37c9;
+    --accent: #4cc9f0;
+    --dark: #2b2d42;
+    --light: #f8f9fa;
+    --gradient-sidebar: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+    --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    --shadow-primary: 0 10px 20px rgba(67, 97, 238, 0.15);
+    --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Reset i podstawowe style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background: var(--light);
+    min-height: 100vh;
+}
+
+/* Główny kontener */
+.cms-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background: var(--light);
+}
+
+/* Panel boczny - Wzbogacona wersja */
+.cms-sidebar {
+    width: 280px;
+    background: var(--gradient-sidebar);
+    padding: 2rem 1.5rem;
+    position: fixed;
+    height: 100%;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.cms-brand {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 3rem;
+    padding-left: 0.5rem;
+    position: relative;
+}
+
+.cms-brand::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 0.5rem;
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.cms-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cms-nav-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.cms-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(5px);
+}
+
+.cms-nav-link:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(8px);
+    color: white;
+}
+
+.cms-nav-link.active {
+    background: var(--light);
+    color: var(--primary);
+    box-shadow: var(--shadow-primary);
+}
+
+.cms-nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--accent);
+}
+
+.cms-nav-link i {
+    width: 25px;
+    font-size: 1.1em;
+}
+
+/* Główna zawartość */
+.cms-main {
+    flex: 1;
+    margin-left: 280px;
+    padding: 3rem;
+    min-height: 100vh;
+}
+
+/* Nagłówek */
+.cms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+}
+
+.cms-title {
+    font-size: 2.25rem;
+    color: var(--dark);
+    font-weight: 700;
+    position: relative;
+}
+
+.cms-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+}
+
+/* Karty zarządzania */
+.cms-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.management-card {
+    background: var(--gradient-card);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(255,255,255,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.management-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-primary);
+}
+
+.management-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255,255,255,0.1) 50%,
+        transparent 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -50%; }
+    100% { left: 150%; }
+}
+
+.management-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(var(--primary), 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: var(--primary);
+}
+
+.management-content {
+    flex: 1;
+}
+
+.management-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.management-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Przyciski */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-primary);
+}
+
+.btn-secondary {
+    background: rgba(var(--primary), 0.1);
+    color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background: rgba(var(--primary), 0.2);
+}
+
+/* Responsywność */
+@media (max-width: 1200px) {
+    .cms-main {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .cms-sidebar {
+        width: 240px;
+        padding: 1.5rem 1rem;
+    }
+    
+    .cms-main {
+        margin-left: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cms-wrapper {
+        flex-direction: column;
+    }
+    
+    .cms-sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+    }
+    
+    .cms-main {
+        margin-left: 0;
+        padding: 2rem 1rem;
+    }
+    
+    .cms-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .cms-nav-link {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Animacje */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.floating-icon {
+    animation: float 3s ease-in-out infinite;
+}
